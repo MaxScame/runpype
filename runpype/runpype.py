@@ -2,7 +2,7 @@ from collections import defaultdict
 import json
 import logging
 from queue import Queue
-from typing import Any, Callable, List
+from typing import Any, Callable
 
 
 class ContextDict(dict):
@@ -122,13 +122,13 @@ class Pype:
             self.add(key, name, func, require)
         return wrapper
 
-    def chain_task_links(self, addicted_key: str, requirements: List[str]) -> None:
+    def chain_task_links(self, addicted_key: str, requirements: set[str]) -> None:
         """
         Link tasks by key.
 
         Args:
             addicted_key (str): dependent task key
-            requirements (List[str]): keys to the tasks required for calculation
+            requirements (set[str]): keys to the tasks required for calculation
         """
         for arg in requirements:
             self.link_keys(arg, addicted_key)
