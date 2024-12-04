@@ -63,7 +63,7 @@ class Pype:
     Functions pipeline with auto recalculate if values changed.
     """
 
-    def __init__(self, name: str, context: Context = None) -> None:
+    def __init__(self, name: str = None, context: Context = None) -> None:
         """
         Args:
             name (str): pipeline name
