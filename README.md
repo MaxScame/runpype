@@ -43,3 +43,40 @@ Or just the `runpype.py` file from it.
 ```python
 from runpype import Pype
 ```
+
+## Usage
+
+```python
+from runpype import Pype, Context
+
+pype = Pype()
+
+@pype.add_task(key="1", name="First func")
+def one(_: Context):
+    return 1
+
+@pype.add_task(key="2", name="Second func", require={"1"})
+def two(ctx: Context):
+    return ctx.get("1") + 2
+
+pype.run()
+
+print(repr(pype))
+
+pype["1"] = 2
+
+print(repr(pype))
+```
+
+Result:
+
+```bash
+{
+    "1": 1,
+    "2": 3
+}
+{
+    "1": 2,
+    "2": 4
+}
+```
