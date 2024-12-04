@@ -6,7 +6,7 @@ A lightweight reactive task engine that allows you to connect task execution in 
 
 - 🔥 Optimizations
 - 🔁 Multi-threading
-- 👽 external dependencies
+- 👽 External dependencies
 - 🔬 Complicated code
 - 🐳 Docker
 - 🤖 CI/CD
